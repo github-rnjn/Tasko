@@ -1,7 +1,4 @@
-node_modules
-
+node_modules/
 .env
-
-logs
-
-coverage
+.env.*
+!.env.example
