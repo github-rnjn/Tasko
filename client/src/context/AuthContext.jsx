@@ -94,6 +94,14 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const updateUser = (updatedUser) => {
+
+        setUser((currentUser) => ({
+            ...currentUser,
+            ...updatedUser,
+        }));
+    };
+
     useEffect(() => {
         initializeAuth();
     }, []);
@@ -107,6 +115,7 @@ export const AuthProvider = ({ children }) => {
                 isLoading,
                 login,
                 logout,
+                updateUser,
                 initializeAuth,
             }}
         >

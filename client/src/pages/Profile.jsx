@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+import { useAuth } from "../context/AuthContext";
+
 import {
     AlertCircle,
     Camera,
@@ -17,6 +19,8 @@ import {
 } from "../api/profile.api";
 
 const Profile = () => {
+
+    const {updateUser} = useAuth();
 
     const fileInputRef = useRef(null);
 
@@ -128,6 +132,8 @@ const Profile = () => {
 
             setProfile(response.data);
 
+            updateUser(response.data);
+
             setProfileForm({
                 name:
                     response.data.name || "",
@@ -177,6 +183,8 @@ const Profile = () => {
             setProfile(
                 response.data
             );
+
+            updateUser(response.data);
 
             setSuccess(
                 "Avatar updated successfully."
