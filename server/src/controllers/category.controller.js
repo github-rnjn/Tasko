@@ -29,9 +29,9 @@ const getCategories = asyncHandler(async (req, res) => {
     const categories =
         await categoryService.getAll(req.user._id);
 
-    return res.status(200).json(
+    return res.status(HTTP_STATUS.OK).json(
         new ApiResponse(
-            200,
+            HTTP_STATUS.OK,
             "Categories fetched successfully",
             categories
         )
@@ -48,9 +48,9 @@ const updateCategory = asyncHandler(async (req, res) => {
             req.body
         );
 
-    return res.status(200).json(
+    return res.status(HTTP_STATUS.OK).json(
         new ApiResponse(
-            200,
+            HTTP_STATUS.OK,
             "Category updated successfully",
             category
         )
@@ -65,9 +65,9 @@ const deleteCategory = asyncHandler(async (req, res) => {
         req.params.id
     );
 
-    return res.status(200).json(
+    return res.status(HTTP_STATUS.OK).json(
         new ApiResponse(
-            200,
+            HTTP_STATUS.OK,
             "Category deleted successfully"
         )
     );
