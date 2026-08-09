@@ -1,11 +1,14 @@
 import {
     LogOut,
+    Menu,
     UserCircle,
 } from "lucide-react";
 
 import { useAuth } from "../../context/AuthContext";
 
-const Navbar = () => {
+const Navbar = ({
+    onMenuClick = () => {},
+}) => {
 
     const {
         user,
@@ -25,26 +28,41 @@ const Navbar = () => {
     return (
         <header className="h-16 shrink-0 border-b border-slate-200 bg-white">
 
-            <div className="h-full px-4 sm:px-6 flex items-center justify-between">
+            <div className="h-full px-3 sm:px-6 flex items-center justify-between gap-2">
 
-                {/* Welcome */}
+                {/* Menu + Welcome */}
 
-                <div>
+                <div className="flex items-center gap-2 min-w-0">
 
-                    <p className="text-sm text-slate-500">
-                        Welcome back
-                    </p>
+                    {/* Hamburger, mobile only */}
 
-                    <p className="text-sm font-semibold text-slate-900">
-                        {user?.name || "User"}
-                    </p>
+                    <button
+                        type="button"
+                        onClick={onMenuClick}
+                        className="md:hidden shrink-0 rounded-lg p-2 text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                        aria-label="Open menu"
+                    >
+                        <Menu size={20} />
+                    </button>
+
+                    <div className="min-w-0">
+
+                        <p className="text-sm text-slate-500">
+                            Welcome back
+                        </p>
+
+                        <p className="text-sm font-semibold text-slate-900 truncate">
+                            {user?.name || "User"}
+                        </p>
+
+                    </div>
 
                 </div>
 
 
                 {/* User section */}
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0">
 
                     <div className="hidden sm:flex items-center gap-2">
 
@@ -83,7 +101,7 @@ const Navbar = () => {
 
                         )}
 
-                        <span className="text-sm font-medium text-slate-700">
+                        <span className="text-sm font-medium text-slate-700 max-w-32 truncate">
                             {user?.name || "User"}
                         </span>
 
@@ -95,7 +113,7 @@ const Navbar = () => {
                     <button
                         type="button"
                         onClick={handleLogout}
-                        className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition"
+                        className="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 sm:px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition"
                     >
 
                         <LogOut size={17} />

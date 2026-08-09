@@ -457,9 +457,9 @@ const CategoryForm = ({
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6 overflow-y-auto">
 
-            <div className="w-full max-w-md rounded-xl bg-white shadow-xl">
+            <div className="w-full max-w-md rounded-xl bg-white shadow-xl max-h-full overflow-y-auto">
 
                 {/* Header */}
 
