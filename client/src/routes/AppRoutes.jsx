@@ -12,15 +12,22 @@ import Register from "../pages/auth/Register";
 import VerifyEmail from "../pages/auth/VerifyEmail";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
+
 import AppLayout from "../components/layout/AppLayout";
+
 import Dashboard from "../pages/Dashboard";
+import Tasks from "../pages/Tasks";
+import Categories from "../pages/Categories";
+// import Profile from "../pages/Profile";
 
 const AppRoutes = () => {
 
     return (
         <Routes>
 
-            {/* PUBLIC */}
+            {/* =========================
+                PUBLIC ROUTES
+            ========================= */}
 
             <Route element={<PublicRoute />}>
 
@@ -52,7 +59,9 @@ const AppRoutes = () => {
             </Route>
 
 
-            {/* PROTECTED */}
+            {/* =========================
+                PROTECTED APPLICATION
+            ========================= */}
 
             <Route element={<ProtectedRoute />}>
 
@@ -63,10 +72,30 @@ const AppRoutes = () => {
                         element={<Dashboard />}
                     />
 
+                    <Route
+                        path="/tasks"
+                        element={<Tasks />}
+                    />
+
+                    
+                    <Route
+                        path="/categories"
+                        element={<Categories />}
+                    />
+
+                    {/* <Route
+                        path="/profile"
+                        element={<Profile />}
+                    /> */}
+
                 </Route>
 
             </Route>
 
+
+            {/* =========================
+                DEFAULT
+            ========================= */}
 
             <Route
                 path="/"
@@ -77,6 +106,10 @@ const AppRoutes = () => {
                     />
                 }
             />
+
+            {/* =========================
+                UNKNOWN ROUTE
+            ========================= */}
 
             <Route
                 path="*"
