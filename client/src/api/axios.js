@@ -47,103 +47,58 @@ api.interceptors.response.use(
 
         const originalRequest = error.config;
 
+        const url = originalRequest?.url || "";
+
+        const isAuthRequest =
+            url.includes("/auth/login") ||
+            url.includes("/auth/register") ||
+            url.includes("/auth/verify-email") ||
+            url.includes("/auth/resend-verification") ||
+            url.includes("/auth/forgot-password") ||
+            url.includes("/auth/reset-password") ||
+            url.includes("/auth/refresh-token");
+
         if (
-            error.response?.status !== 401 ||
-            originalRequest._retry
+            error.response?.status === 401 &&
+            !isAuthRequest &&
+            !originalRequest._retry
         ) {
-            return Promise.reject(error);
-        }
 
-        /*
-         * Don't try to refresh the token if
-         * the failed request itself was the
-         * refresh-token request.
-         */
-        if (
-            originalRequest.url?.includes(
-                "/auth/refresh-token"
-            )
-        ) {
-            localStorage.removeItem("accessToken");
+            originalRequest._retry = true;
 
-            return Promise.reject(error);
-        }
+            try {
 
-        if (isRefreshing) {
+                const response =
+                    await api.post(
+                        "/auth/refresh-token"
+                    );
 
-            return new Promise(
-                (resolve, reject) => {
+                const newAccessToken =
+                    response.data.data.accessToken;
 
-                    failedQueue.push({
-                        resolve,
-                        reject,
-                    });
-
-                }
-            ).then((token) => {
+                localStorage.setItem(
+                    "accessToken",
+                    newAccessToken
+                );
 
                 originalRequest.headers.Authorization =
-                    `Bearer ${token}`;
+                    `Bearer ${newAccessToken}`;
 
                 return api(originalRequest);
 
-            });
+            } catch (refreshError) {
+
+                localStorage.removeItem(
+                    "accessToken"
+                );
+
+                return Promise.reject(
+                    refreshError
+                );
+            }
         }
 
-        originalRequest._retry = true;
-        isRefreshing = true;
-
-        try {
-
-            /*
-             * Do NOT manually send the refresh token.
-             *
-             * The browser sends the HTTP-only
-             * cookie automatically because
-             * withCredentials is true.
-             */
-            const response = await api.post(
-                "/auth/refresh-token"
-            );
-
-            const newAccessToken =
-                response.data.data.accessToken;
-
-            localStorage.setItem(
-                "accessToken",
-                newAccessToken
-            );
-
-            processQueue(
-                null,
-                newAccessToken
-            );
-
-            originalRequest.headers.Authorization =
-                `Bearer ${newAccessToken}`;
-
-            return api(originalRequest);
-
-        } catch (refreshError) {
-
-            processQueue(
-                refreshError,
-                null
-            );
-
-            localStorage.removeItem(
-                "accessToken"
-            );
-
-            return Promise.reject(
-                refreshError
-            );
-
-        } finally {
-
-            isRefreshing = false;
-
-        }
+        return Promise.reject(error);
     }
 );
 

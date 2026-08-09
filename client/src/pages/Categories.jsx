@@ -131,7 +131,7 @@ const Categories = () => {
                 <button
                     type="button"
                     onClick={handleCreate}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 transition"
                 >
                     <Plus size={18} />
                     Create Category
@@ -211,7 +211,7 @@ const Categories = () => {
                         <button
                             type="button"
                             onClick={handleCreate}
-                            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
+                            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700"
                         >
                             <Plus size={18} />
                             Create Category
@@ -484,7 +484,7 @@ const CategoryForm = ({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+                        className="cursor-pointer rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
                     >
                         <X size={19} />
                     </button>
@@ -530,7 +530,7 @@ const CategoryForm = ({
                             }
                             placeholder="e.g. Work"
                             maxLength={30}
-                            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                         />
 
                     </div>
@@ -570,7 +570,7 @@ const CategoryForm = ({
                                     )
                                 }
                                 maxLength={7}
-                                className="flex-1 rounded-lg border border-slate-300 px-3 py-2.5 text-sm uppercase outline-none focus:border-slate-500"
+                                className="flex-1 rounded-lg border border-slate-300 px-3 py-2.5 text-sm uppercase outline-none focus:border-indigo-500"
                             />
 
                         </div>
@@ -600,7 +600,7 @@ const CategoryForm = ({
                             }
                             maxLength={30}
                             placeholder="folder"
-                            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                         />
 
                         <p className="mt-1.5 text-xs text-slate-400">
@@ -618,7 +618,7 @@ const CategoryForm = ({
                             type="button"
                             onClick={onClose}
                             disabled={submitting}
-                            className="rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+                            className="cursor-pointer rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-50"
                         >
                             Cancel
                         </button>
@@ -626,7 +626,7 @@ const CategoryForm = ({
                         <button
                             type="submit"
                             disabled={submitting}
-                            className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
                         >
 
                             {submitting && (

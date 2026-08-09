@@ -42,11 +42,11 @@ const Sidebar = ({
 
             {/* Logo */}
 
-            <div className="h-16 shrink-0 flex items-center justify-between px-6 border-b border-slate-200">
+            <div className="h-16 shrink-0 flex items-center justify-between px-6 border-b border-indigo-100/80">
 
                 <div className="flex items-center gap-2">
 
-                    <div className="h-8 w-8 rounded-lg bg-slate-900 flex items-center justify-center">
+                    <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center">
                         <CheckSquare
                             size={18}
                             className="text-white"
@@ -64,7 +64,7 @@ const Sidebar = ({
                 <button
                     type="button"
                     onClick={onClose}
-                    className="md:hidden rounded-lg p-2 text-slate-400 hover:bg-slate-50 hover:text-slate-900"
+                    className="md:hidden rounded-lg p-2 text-indigo-400 hover:bg-indigo-100/70 hover:text-indigo-900"
                     aria-label="Close menu"
                 >
                     <X size={20} />
@@ -88,8 +88,8 @@ const Sidebar = ({
                             className={({ isActive }) =>
                                 `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
                                     isActive
-                                        ? "bg-slate-100 text-slate-900"
-                                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                                        ? "bg-indigo-100 text-indigo-800"
+                                        : "text-indigo-950/60 hover:bg-indigo-100/60 hover:text-indigo-900"
                                 }`
                             }
                         >
@@ -110,7 +110,7 @@ const Sidebar = ({
 
             {/* Desktop sidebar */}
 
-            <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white">
+            <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-indigo-100/80 bg-indigo-50/60">
                 {sidebarContent}
             </aside>
 
@@ -130,7 +130,7 @@ const Sidebar = ({
             {/* Mobile drawer */}
 
             <aside
-                className={`md:hidden fixed inset-y-0 left-0 z-50 flex w-72 max-w-[80vw] flex-col bg-white shadow-xl transition-transform duration-200 ease-in-out ${
+                className={`md:hidden fixed inset-y-0 left-0 z-50 flex w-72 max-w-[80vw] flex-col bg-indigo-50/60 shadow-xl transition-transform duration-200 ease-in-out ${
                     open
                         ? "translate-x-0"
                         : "-translate-x-full"

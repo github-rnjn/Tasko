@@ -213,7 +213,7 @@ const Tasks = () => {
                 <button
                     type="button"
                     onClick={() => setShowCreateForm(true)}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition"
+                    className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 transition"
                 >
                     <Plus size={18} />
                     Create Task
@@ -248,7 +248,7 @@ const Tasks = () => {
                                 )
                             }
                             onKeyDown={handleSearch}
-                            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-3 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                         />
 
                     </div>
@@ -264,7 +264,7 @@ const Tasks = () => {
                                 event.target.value
                             )
                         }
-                        className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-slate-500"
+                        className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500"
                     >
 
                         <option value="">
@@ -296,7 +296,7 @@ const Tasks = () => {
                                 event.target.value
                             )
                         }
-                        className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-slate-500"
+                        className="rounded-lg border border-slate-300 px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500"
                     >
 
                         <option value="">
@@ -392,7 +392,7 @@ const Tasks = () => {
                         <button
                             type="button"
                             onClick={() => setShowCreateForm(true)}
-                            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
+                            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700"
                         >
                             <Plus size={18} />
                             Create Task
@@ -545,6 +545,18 @@ const TaskCard = ({
         HIGH: "High",
     };
 
+    const statusColor = {
+        TODO: "slate",
+        IN_PROGRESS: "amber",
+        COMPLETED: "emerald",
+    };
+
+    const priorityColor = {
+        LOW: "sky",
+        MEDIUM: "amber",
+        HIGH: "rose",
+    };
+
     return (
         <div className="rounded-xl border border-slate-200 bg-white p-5">
 
@@ -572,11 +584,11 @@ const TaskCard = ({
 
                     <div className="mt-3 flex flex-wrap items-center gap-2">
 
-                        <Badge>
+                        <Badge color={statusColor[task.status]}>
                             {statusLabel[task.status]}
                         </Badge>
 
-                        <Badge>
+                        <Badge color={priorityColor[task.priority]}>
                             {priorityLabel[task.priority]}
                         </Badge>
 
@@ -700,10 +712,18 @@ const TaskCard = ({
    Badge
 ========================================= */
 
-const Badge = ({ children }) => {
+const BADGE_COLORS = {
+    slate: "bg-slate-100 text-slate-600",
+    amber: "bg-amber-100 text-amber-700",
+    emerald: "bg-emerald-100 text-emerald-700",
+    sky: "bg-sky-100 text-sky-700",
+    rose: "bg-rose-100 text-rose-700",
+};
+
+const Badge = ({ children, color = "slate" }) => {
 
     return (
-        <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">
+        <span className={`rounded-md px-2 py-1 text-xs font-medium ${BADGE_COLORS[color]}`}>
             {children}
         </span>
     );

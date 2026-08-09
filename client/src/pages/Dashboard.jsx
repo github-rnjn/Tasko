@@ -129,24 +129,28 @@ const Dashboard = () => {
                     title="Total Tasks"
                     value={totalTasks}
                     icon={ListTodo}
+                    color="indigo"
                 />
 
                 <StatCard
                     title="Completed"
                     value={completedTasks}
                     icon={CheckCircle2}
+                    color="emerald"
                 />
 
                 <StatCard
                     title="Pending"
                     value={pendingTasks}
                     icon={Clock3}
+                    color="amber"
                 />
 
                 <StatCard
                     title="Overdue"
                     value={overdueTasks}
                     icon={AlertCircle}
+                    color="rose"
                 />
 
             </div>
@@ -264,10 +268,18 @@ const Dashboard = () => {
    Stat Card
 ========================================= */
 
+const STAT_COLORS = {
+    indigo: "bg-indigo-50 text-indigo-600",
+    emerald: "bg-emerald-50 text-emerald-600",
+    amber: "bg-amber-50 text-amber-600",
+    rose: "bg-rose-50 text-rose-600",
+};
+
 const StatCard = ({
     title,
     value,
     icon: Icon,
+    color = "indigo",
 }) => {
 
     return (
@@ -279,10 +291,11 @@ const StatCard = ({
                     {title}
                 </p>
 
-                <Icon
-                    size={19}
-                    className="text-slate-400"
-                />
+                <div
+                    className={`flex h-9 w-9 items-center justify-center rounded-lg ${STAT_COLORS[color]}`}
+                >
+                    <Icon size={18} />
+                </div>
 
             </div>
 
@@ -357,7 +370,7 @@ const ProductivityChart = ({
                         </span>
 
                         <div
-                            className="w-full max-w-10 rounded-t-md bg-slate-800 transition-all"
+                            className="w-full max-w-10 rounded-t-md bg-indigo-500 transition-all"
                             style={{
                                 height: `${height}%`,
                             }}

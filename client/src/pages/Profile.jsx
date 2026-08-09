@@ -414,7 +414,7 @@ const Profile = () => {
                                 disabled={
                                     uploadingAvatar
                                 }
-                                className="absolute bottom-0 right-0 rounded-full border border-white bg-slate-900 p-2 text-white shadow-sm hover:bg-slate-800 disabled:opacity-60"
+                                className="absolute bottom-0 right-0 rounded-full border border-white bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-700 disabled:opacity-60"
                             >
 
                                 {uploadingAvatar ? (
@@ -489,7 +489,7 @@ const Profile = () => {
                                     onChange={
                                         handleProfileChange
                                     }
-                                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                                 />
 
                             </div>
@@ -516,7 +516,7 @@ const Profile = () => {
                                     onChange={
                                         handleProfileChange
                                     }
-                                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                                    className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                                 />
 
                             </div>
@@ -531,7 +531,7 @@ const Profile = () => {
                                 disabled={
                                     savingProfile
                                 }
-                                className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="cursor-pointer inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
                             >
 
                                 {savingProfile ? (
@@ -611,7 +611,7 @@ const Profile = () => {
                                 onChange={
                                     handlePasswordChange
                                 }
-                                className="w-full rounded-lg border border-slate-300 px-3 py-2.5 pr-10 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2.5 pr-10 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                             />
 
                             <button
@@ -663,7 +663,7 @@ const Profile = () => {
                                 onChange={
                                     handlePasswordChange
                                 }
-                                className="w-full rounded-lg border border-slate-300 px-3 py-2.5 pr-10 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-100"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2.5 pr-10 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
                             />
 
                             <button
@@ -695,7 +695,7 @@ const Profile = () => {
                             disabled={
                                 savingPassword
                             }
-                            className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                            className="cursor-pointer inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
                         >
 
                             {savingPassword && (

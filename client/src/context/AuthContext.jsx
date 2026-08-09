@@ -42,7 +42,14 @@ export const AuthProvider = ({ children }) => {
         );
 
         setAccessToken(token);
-        setUser(loggedInUser);
+
+        const userResponse =
+        await api.get("/users/me");
+
+        const currentUser =
+        userResponse.data.data;
+
+        setUser(currentUser);
 
         return response;
     };
