@@ -3,7 +3,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const requiredEnvVariables = [
-    "PORT",
     "MONGODB_URI",
     "SMTP_HOST",
     "SMTP_PORT",
@@ -27,7 +26,7 @@ requiredEnvVariables.forEach((key) => {
 });
 
 module.exports = {
-    PORT: Number(process.env.PORT),
+    PORT: Number(process.env.PORT) || 5000,
     MONGODB_URI: process.env.MONGODB_URI,
     SMTP_HOST: process.env.SMTP_HOST,
     SMTP_PORT: Number(process.env.SMTP_PORT),
