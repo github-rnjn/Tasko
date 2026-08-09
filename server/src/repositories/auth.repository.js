@@ -27,6 +27,10 @@ class AuthRepository {
         );
     }
 
+    async findByIdWithPassword(userId) {
+        return User.findById(userId).select("+password");
+    }
+    
     async findByEmailWithPassword(email) {
         return User.findOne({
             email

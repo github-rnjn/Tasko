@@ -13,6 +13,7 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const categoryRoutes = require("./routes/category.routes");
 const taskRoutes = require("./routes/task.routes");
+const profileRoutes = require("./routes/profile.routes");
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/categories",categoryRoutes);
 app.use("/api/v1/tasks", taskRoutes);
+app.use("/api/v1/profile", profileRoutes);
 
 app.use(notFound);
 
