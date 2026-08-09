@@ -12,13 +12,15 @@ import Register from "../pages/auth/Register";
 import VerifyEmail from "../pages/auth/VerifyEmail";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
+import AppLayout from "../components/layout/AppLayout";
+import Dashboard from "../pages/Dashboard";
 
 const AppRoutes = () => {
 
     return (
         <Routes>
 
-            {/* Public authentication pages */}
+            {/* PUBLIC */}
 
             <Route element={<PublicRoute />}>
 
@@ -49,26 +51,22 @@ const AppRoutes = () => {
 
             </Route>
 
-            {/* Protected application pages */}
+
+            {/* PROTECTED */}
 
             <Route element={<ProtectedRoute />}>
 
-                {/* Dashboard will be added here */}
+                <Route element={<AppLayout />}>
 
-                <Route
-                    path="/dashboard"
-                    element={
-                        <div className="min-h-screen flex items-center justify-center">
-                            <h1 className="text-2xl font-bold">
-                                Dashboard
-                            </h1>
-                        </div>
-                    }
-                />
+                    <Route
+                        path="/dashboard"
+                        element={<Dashboard />}
+                    />
+
+                </Route>
 
             </Route>
 
-            {/* Default */}
 
             <Route
                 path="/"
@@ -79,8 +77,6 @@ const AppRoutes = () => {
                     />
                 }
             />
-
-            {/* Unknown route */}
 
             <Route
                 path="*"
