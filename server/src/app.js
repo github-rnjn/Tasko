@@ -14,6 +14,7 @@ const userRoutes = require("./routes/user.routes");
 const categoryRoutes = require("./routes/category.routes");
 const taskRoutes = require("./routes/task.routes");
 const profileRoutes = require("./routes/profile.routes");
+const dashboardRoutes = require("./routes/dashboard.routes");
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/categories",categoryRoutes);
 app.use("/api/v1/tasks", taskRoutes);
 app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/dashboard",dashboardRoutes);
 
 app.use(notFound);
 
