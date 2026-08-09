@@ -10,6 +10,8 @@ const errorHandler = require("./middlewares/error.middleware");
 
 const healthRoutes = require("./routes/health.routes");
 const authRoutes = require("./routes/auth.routes");
+const userRoutes = require("./routes/user.routes");
+const categoryRoutes = require("./routes/category.routes");
 
 const app = express();
 
@@ -34,6 +36,8 @@ app.use(morgan("dev"));
 
 app.use("/health", healthRoutes);
 app.use("/api/v1/auth",authRoutes);
+app.use("/api/v1/users",userRoutes);
+app.use("/api/v1/categories",categoryRoutes);
 
 app.use(notFound);
 
