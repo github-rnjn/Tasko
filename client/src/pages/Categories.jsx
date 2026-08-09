@@ -170,7 +170,7 @@ const Categories = () => {
             {/* Loading */}
 
             {loading && (
-                <div className="flex min-h-[250px] items-center justify-center">
+                <div className="flex min-h-62.5 items-center justify-center">
 
                     <div className="flex items-center gap-2 text-sm text-slate-500">
 

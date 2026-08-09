@@ -34,6 +34,11 @@ const userSchema = new mongoose.Schema(
         lastLogin: {
             type: Date,
         },
+        
+        avatar: {
+            type: String,
+            default: null,
+        },
     },
     {
         timestamps: true,

@@ -18,7 +18,7 @@ import AppLayout from "../components/layout/AppLayout";
 import Dashboard from "../pages/Dashboard";
 import Tasks from "../pages/Tasks";
 import Categories from "../pages/Categories";
-// import Profile from "../pages/Profile";
+import Profile from "../pages/Profile";
 
 const AppRoutes = () => {
 
@@ -83,10 +83,10 @@ const AppRoutes = () => {
                         element={<Categories />}
                     />
 
-                    {/* <Route
+                    <Route
                         path="/profile"
                         element={<Profile />}
-                    /> */}
+                    />
 
                 </Route>
 

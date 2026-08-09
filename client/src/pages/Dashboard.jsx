@@ -48,7 +48,7 @@ const Dashboard = () => {
 
     if (loading) {
         return (
-            <div className="min-h-[400px] flex items-center justify-center">
+            <div className="min-h-100 flex items-center justify-center">
 
                 <div className="flex items-center gap-2 text-sm text-slate-500">
 

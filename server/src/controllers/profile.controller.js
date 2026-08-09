@@ -11,6 +11,8 @@ const validate =
 
 const {updateProfileSchema,changePasswordSchema} = require("../validators/profile.validator");
 
+const ApiError = require("../utils/ApiError");
+
 const getProfile = asyncHandler(async (req, res) => {
 
     const profile =
@@ -86,6 +88,9 @@ const changePassword = asyncHandler(async (req, res) => {
 });
 
 const updateAvatar = asyncHandler(async (req, res) => {
+
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
     if (!req.file) {
 
