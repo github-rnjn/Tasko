@@ -1,9 +1,10 @@
-const ApiResponse = require("../../utils/ApiResponse");
+const ApiResponse = require("../utils/ApiResponse");
+const {HTTP_STATUS} = require("../constants/index");
 
 const healthCheck = (req, res) => {
-    return res.status(200).json(
+    return res.status(HTTP_STATUS.OK).json(
         new ApiResponse(
-            200,
+            HTTP_STATUS.OK,
             "Server is running"
         )
     );
