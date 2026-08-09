@@ -438,13 +438,6 @@ const TaskForm = ({ task=null,onClose, onSuccess }) => {
                             className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
                         >
 
-                            {isSubmitting && (
-                                <Loader2
-                                    size={17}
-                                    className="animate-spin"
-                                />
-                            )}
-
                             {isSubmitting ? (
                                 <>
                                     <Loader2
@@ -452,9 +445,7 @@ const TaskForm = ({ task=null,onClose, onSuccess }) => {
                                         className="animate-spin"
                                     />
 
-                                    {task
-                                        ? "Updating..."
-                                        : "Creating..."}
+                                    {task ? "Updating..." : "Creating..."}
                                 </>
                             ) : (
                                 task
