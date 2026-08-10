@@ -110,7 +110,7 @@ const Sidebar = ({
 
             {/* Desktop sidebar */}
 
-            <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-indigo-100/80 bg-indigo-50/60">
+            <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-indigo-100/80 bg-indigo-50">
                 {sidebarContent}
             </aside>
 
@@ -130,7 +130,7 @@ const Sidebar = ({
             {/* Mobile drawer */}
 
             <aside
-                className={`md:hidden fixed inset-y-0 left-0 z-50 flex w-72 max-w-[80vw] flex-col bg-indigo-50/60 shadow-xl transition-transform duration-200 ease-in-out ${
+                className={`md:hidden fixed inset-y-0 left-0 z-50 flex w-72 max-w-[80vw] flex-col bg-indigo-50 shadow-xl transition-transform duration-200 ease-in-out ${
                     open
                         ? "translate-x-0"
                         : "-translate-x-full"
